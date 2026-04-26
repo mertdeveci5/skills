@@ -1,0 +1,33 @@
+{
+  "name": "@mertdeveci/skills",
+  "version": "1.0.0",
+  "description": "Agent Skills collection by Mert Deveci.",
+  "keywords": [
+    "agent-skill",
+    "skills",
+    "pi-package",
+    "planning",
+    "architecture",
+    "product"
+  ],
+  "license": "MIT",
+  "author": "Mert Deveci",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mertdeveci5/skills.git"
+  },
+  "bugs": {
+    "url": "https://github.com/mertdeveci5/skills/issues"
+  },
+  "homepage": "https://github.com/mertdeveci5/skills#readme",
+  "files": [
+    "skills",
+    "README.md",
+    "LICENSE"
+  ],
+  "pi": {
+    "skills": [
+      "./skills"
+    ]
+  }
+}
