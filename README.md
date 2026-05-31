@@ -28,12 +28,31 @@ Use in pi:
 /skill:handshake Stress-test this feature plan...
 ```
 
+### KISS
+
+Scans a codebase for `CLAUDE.md` and `AGENTS.md` files and injects KISS (Keep It Simple) coding principles via smart merge, creating them if missing.
+
+Install with the open `skills` CLI:
+
+```bash
+npx skills add mertdeveci5/skills --skill kiss
+```
+
+Use in pi:
+
+```text
+/skill:kiss
+```
+
 ## Repository layout
 
 ```text
 skills/
   handshake/
     SKILL.md
+  kiss/
+    SKILL.md
+    references/
 ```
 
 ## License
