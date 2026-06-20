@@ -28,6 +28,22 @@ Use in pi:
 /skill:handshake Stress-test this feature plan...
 ```
 
+### Bug Fix
+
+Investigates bugs, messy changes, and incomplete plans from the root cause first, preferring simplification and architectural cleanup before local patches when the code structure is causing the problem.
+
+Install with the open `skills` CLI:
+
+```bash
+npx skills add mertdeveci5/skills --skill bug-fix
+```
+
+Use in pi:
+
+```text
+/skill:bug-fix Fix this regression and clean up the code path...
+```
+
 ### KISS
 
 Scans a codebase for `CLAUDE.md` and `AGENTS.md` files and injects KISS (Keep It Simple) coding principles via smart merge, creating them if missing.
@@ -48,6 +64,10 @@ Use in pi:
 
 ```text
 skills/
+  bug-fix/
+    SKILL.md
+    agents/
+      openai.yaml
   handshake/
     SKILL.md
   kiss/

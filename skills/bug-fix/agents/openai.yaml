@@ -1,0 +1,4 @@
+interface:
+  display_name: "Bug Fix"
+  short_description: "Repair bugs with root-cause cleanup"
+  default_prompt: "Use $bug-fix to diagnose and fix this issue from the root cause."
