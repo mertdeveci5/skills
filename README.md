@@ -46,7 +46,7 @@ Use in pi:
 
 ### KISS
 
-Scans a codebase for `CLAUDE.md` and `AGENTS.md` files and injects KISS (Keep It Simple) coding principles via smart merge, creating them if missing.
+Applies KISS (Keep It Simple) engineering principles while planning, implementing, reviewing, or simplifying code. The guidance stays in the agent context and does not modify project instruction files by default.
 
 Install with the open `skills` CLI:
 
@@ -72,7 +72,6 @@ skills/
     SKILL.md
   kiss/
     SKILL.md
-    references/
 ```
 
 ## License

@@ -1,48 +1,88 @@
 ---
 name: kiss
-description: Scan codebase for CLAUDE.md and AGENTS.md files, inject KISS coding principles via smart merge, or create them if missing.
+description: Apply KISS engineering principles while planning, implementing, reviewing, or simplifying code. Use when the user invokes $kiss, asks to keep code simple, reduce complexity, fix root causes, remove dead code, or evaluate architecture against simplicity.
 ---
 
 # KISS — Keep It Simple
 
-This skill injects KISS coding principles into a codebase's CLAUDE.md and AGENTS.md files.
+Use this skill as engineering guidance loaded into your own context. Do not inject, append, or copy these instructions into a repository's `AGENTS.md`, `CLAUDE.md`, README, or other project docs unless the user explicitly asks for documentation edits.
 
-## Workflow
+## Operating Rules
 
-### 1. Scan
+- Read the relevant code first and let the existing ownership boundaries guide the change.
+- Prefer removing, replacing, or simplifying code over adding more code.
+- Fix root causes instead of layering patches over symptoms.
+- Keep one clear behavior path. Do not leave old paths alive as hidden fallbacks.
+- Avoid speculative abstractions, feature flags, options, env vars, wrappers, and helpers.
+- Keep error boundaries, validation, and user-visible failure messages where data enters or leaves the system.
+- Report what was simplified or removed when that matters for the user's review.
 
-Glob for `**/CLAUDE.md` and `**/AGENTS.md` across the codebase. Skip `node_modules`, `.git`, `dist`, `build`, `vendor`, and any other dependency/output directories.
+## Do Not Modify Project Docs By Default
 
-### 2. Load KISS Content
+Loading this skill is not a request to modify repository instruction files.
 
-Read `references/kiss-content.md` from this skill's directory. This is the block to inject.
+- Do not scan for `AGENTS.md` or `CLAUDE.md`.
+- Do not create missing instruction files.
+- Do not add a KISS section to project docs.
+- Do not add pointer lines that reference this skill.
+- If the user separately asks to edit docs, only edit the files and content they requested.
 
-### 3. Process Found Files
+## Core Principles
 
-For each file found:
+Simplicity means building a system that does a limited set of things in specific ways, reducing the surface area where bugs can happen. Simple does not mean fragile, naive, or incomplete; it means every piece earns its place.
 
-1. Read the current content in full.
-2. **Idempotency check**: Search for a heading matching `## KISS`. If found, replace that entire section (up to the next `##` heading or end of file) with the updated content from `kiss-content.md`. Do not duplicate.
-3. **Smart merge**: Scan existing `##` headings for keywords: "style", "guidelines", "quality", "principles", "conventions", "code review", "standards". For each match, if it doesn't already contain a KISS reference, insert a single line at the end of that section:
-   ```
-   > Keep it simple — see the KISS section below for principles on writing clear, minimal code.
-   ```
-4. **Append**: If no existing KISS section was found in step 2, append the full content from `kiss-content.md` as a new section at the end of the file.
-5. Preserve all existing content, formatting, and meaning. Do not rewrite, reorder, or rephrase anything outside of the KISS additions.
+- No legacy fallbacks or backward compatibility shims. When you change something, change it. If something is removed, tell the user what was removed and why.
+- Linear code flow. A reader should be able to follow the codebase top-to-bottom without jumping between unrelated files to understand what happens.
+- Mutually exclusive structure. Directories own their domain. Files own their responsibility. Functions own their task.
+- No magic values. Avoid hardcoded strings or numbers that only make sense if you wrote them. Configuration should be minimal and intentional.
+- One change, one path. Replace behavior instead of layering a new path beside the old path.
+- Small failure surface. Do fewer things, but do them completely. Error boundaries and validation make a simple system trustworthy.
+- Flat over nested. If logic is buried three or more levels deep, flatten it with guard clauses, early returns, or clearer ownership.
 
-### 4. Create Missing Files
+## Fix From The Root
 
-If no CLAUDE.md or AGENTS.md files were found anywhere in the codebase:
+When a bug or bad behavior appears, do not patch only where the symptom appears. Step back and ask:
 
-- Read `references/templates.md` from this skill's directory.
-- Create `CLAUDE.md` at the project root using the CLAUDE.md template.
-- Create `AGENTS.md` at the project root using the AGENTS.md template.
+1. Why did this happen?
+2. Is this a design flaw, a responsibility in the wrong place, or a missing boundary?
+3. Can the fix make the architecture smaller or clearer?
 
-If only one of the two exists, create the missing one.
+If the problem is architectural, fix the architecture. Patching symptoms leads to repeated patches; fixing structure reduces future bugs.
 
-### 5. Report
+## Reduce Before Adding
 
-Summarize what was done:
-- Which files were modified and what was added
-- Which files were created from templates
-- Which files already had KISS content and were updated in place
+After a codebase reaches meaningful complexity, the right move is often to reduce code rather than add code.
+
+- For bug fixes, the fix should ideally make the code shorter or clearer.
+- For enhancements, simplify the existing path first, then add the smallest necessary behavior.
+- For refactors, the result should usually have fewer concepts, fewer branches, or clearer ownership.
+
+Adding substantial code is justified for genuinely new functionality, but even then look for what can be removed or replaced first.
+
+## Dependency And Abstraction Discipline
+
+- Do not pull in a library for something that is straightforward local code.
+- Do not create base classes, interfaces, factories, or generic helpers for one implementation.
+- Do not add wrapper layers around libraries unless there is a real boundary to isolate.
+- Do not add logging, metrics, retry logic, caching, or toggles unless they solve the current problem.
+- Prefer direct imports over barrel files that only re-export.
+
+## Code Hygiene
+
+- No commented-out code.
+- No unused parameters, options, types, helpers, or files.
+- No types or interfaces that mirror data one-to-one without adding constraints.
+- If a function takes more than four parameters, check whether it is doing too much.
+- If a file is large because it mixes concerns, split by ownership rather than by arbitrary helper categories.
+- If a function needs a comment to explain what it does, prefer a clearer name or smaller function.
+- No abbreviations unless they are universal, such as `id`, `url`, or `db`.
+
+## Before Finishing
+
+Ask:
+
+1. Did I add code that could have been avoided by removing or simplifying something?
+2. Is there exactly one code path for the changed behavior?
+3. Can someone read the change top-to-bottom without bouncing through unrelated files?
+4. If I delete any piece of what I added, does something visibly break?
+5. Am I fixing the root cause or only a symptom?
