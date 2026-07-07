@@ -60,6 +60,22 @@ Use in pi:
 /skill:kiss
 ```
 
+### Simplify Codebase
+
+Simplifies codebase architecture and implementation while preserving behavior, applying local `AGENTS.md` and `CLAUDE.md` standards before making small, verified cleanup slices.
+
+Install with the open `skills` CLI:
+
+```bash
+npx skills add mertdeveci5/skills --skill simplify-codebase
+```
+
+Use in pi:
+
+```text
+/skill:simplify-codebase Simplify this subsystem while preserving behavior.
+```
+
 ## Repository layout
 
 ```text
@@ -72,6 +88,10 @@ skills/
     SKILL.md
   kiss/
     SKILL.md
+  simplify-codebase/
+    SKILL.md
+    agents/
+      openai.yaml
 ```
 
 ## License

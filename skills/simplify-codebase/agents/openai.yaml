@@ -1,0 +1,4 @@
+interface:
+  display_name: "Simplify Codebase"
+  short_description: "Simplify architecture without behavior changes"
+  default_prompt: "Use $simplify-codebase to simplify this codebase while preserving behavior."
