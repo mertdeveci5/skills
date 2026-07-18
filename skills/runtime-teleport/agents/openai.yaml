@@ -1,0 +1,7 @@
+interface:
+  display_name: "Runtime Teleport"
+  short_description: "Continue a Codex session in a Runtime VM"
+  default_prompt: "Use $runtime-teleport to teleport this coding session into a Runtime VM and stop after success."
+
+policy:
+  allow_implicit_invocation: false
