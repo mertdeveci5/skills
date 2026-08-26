@@ -1,0 +1,4 @@
+interface:
+  display_name: "Product Description"
+  short_description: "Document user-visible product behavior"
+  default_prompt: "Use $product-description to build an outside-in behavior specification for this product."
