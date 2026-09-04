@@ -1,6 +1,6 @@
 ---
 name: handshake
-description: Interview the user relentlessly about a plan, product decision, architecture, or feature design until reaching shared understanding. Use when the user wants to stress-test a plan, resolve tradeoffs, validate against an existing codebase, or make an opinionated software/product decision before implementation.
+description: Interview the user relentlessly about a difficult problem, plan, product decision, architecture, or feature design until reaching shared understanding. Use when the user wants to stress-test or reframe a problem, resolve tradeoffs, validate against an existing codebase, or make an opinionated software/product decision before implementation.
 license: MIT
 compatibility: Works with pi and Agent Skills-compatible coding harnesses. No external tools required beyond normal code-reading tools when a repository is available.
 ---
@@ -24,6 +24,7 @@ Handshake is not a rubber stamp. Your job is to pressure-test the user's idea, i
 
 Use Handshake when the user asks to:
 
+- Reframe a difficult problem when the obvious approach is stuck.
 - Stress-test a plan, PRD, architecture, migration, or feature idea.
 - Decide between competing designs.
 - Clarify requirements before coding.
@@ -63,7 +64,20 @@ Look for:
 
 Do not invent architecture from memory when code evidence is available.
 
-### 3. Build the decision tree
+### 3. Work the problem from several directions
+
+Use these moves when the obvious framing is not producing a clear decision. Do not force every move when the answer is already supported by evidence.
+
+1. **Simplify.** Remove details that do not affect the outcome until the essential and interesting problem is visible.
+2. **Encircle the problem.** Study similar solutions in the codebase, product, or domain. Identify the constraints and choices they share, then bridge from the current system to the desired outcome through smaller reasoning steps.
+3. **Restate the question.** Express the problem from another useful viewpoint, such as the end user, system owner, operator, or failure case. Treat prior work and sunk cost as evidence, not a commitment to the current framing.
+4. **Break it into smaller pieces.** Divide the problem into independently answerable decisions or experiments. Use what each part teaches to refine the whole.
+5. **Invert.** State the desired conclusion as if it were true, then work backward to the prerequisites, invariants, and evidence it would require.
+6. **Extend and generalize.** After finding a solution, test where it stops working and what broader rule it suggests. Generalization is a design check, not permission to expand the requested scope or build speculative abstractions.
+
+Record only the moves that materially changed the recommendation.
+
+### 4. Build the decision tree
 
 Turn the plan into explicit branches.
 
@@ -79,7 +93,7 @@ For each meaningful decision, capture:
 
 Resolve branches one by one with one question at a time. Do not move to the next branch until the current answer is clear enough to affect the plan. Do not let unresolved decisions hide inside vague words like “simple”, “robust”, “reliable”, “fast”, “later”, or “easy”.
 
-### 4. Interrogate assumptions
+### 5. Interrogate assumptions
 
 Challenge assumptions directly.
 
@@ -98,7 +112,7 @@ Ask questions like:
 
 Ask one sharp question at a time. Never ask a batch of questions unless the user explicitly requests a checklist.
 
-### 5. Be opinionated
+### 6. Be opinionated
 
 Give a clear recommendation once you have enough evidence.
 
@@ -112,7 +126,7 @@ A good recommendation includes:
 
 Avoid “it depends” unless you immediately name what it depends on and ask the deciding question.
 
-### 6. Produce the handshake
+### 7. Produce the handshake
 
 When the plan is understood, end with a concise Handshake Summary:
 
@@ -120,6 +134,7 @@ When the plan is understood, end with a concise Handshake Summary:
 Handshake Summary
 Goal: ...
 End user: ...
+Essential problem: ...
 Chosen approach: ...
 Decisions resolved:
 - ...
@@ -129,6 +144,7 @@ Non-goals:
 - ...
 Risks:
 - ...
+Solution boundary: ...
 Implementation shape:
 - ...
 Open questions:
