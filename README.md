@@ -60,6 +60,22 @@ Use in pi:
 /skill:kiss
 ```
 
+### Product Description
+
+Creates an outside-in specification of a product's user-visible behavior from code and tests, verifies it against the running product, and tracks open questions and suspected defects.
+
+Install with the open `skills` CLI:
+
+```bash
+npx skills add mertdeveci5/skills --skill product-description
+```
+
+Use in pi:
+
+```text
+/skill:product-description Describe this product's behavior feature by feature.
+```
+
 ### Simplify Codebase
 
 Simplifies codebase architecture and implementation while preserving behavior, applying local `AGENTS.md` and `CLAUDE.md` standards before making small, verified cleanup slices.
@@ -76,6 +92,24 @@ Use in pi:
 /skill:simplify-codebase Simplify this subsystem while preserving behavior.
 ```
 
+### Thermo-Nuclear Code Quality Review
+
+Runs an unusually strict maintainability review focused on structural simplification, abstraction quality, file growth, spaghetti branching, and clean architecture boundaries.
+
+Install with the open `skills` CLI:
+
+```bash
+npx skills add mertdeveci5/skills --skill thermo-nuclear-code-quality-review
+```
+
+Use in pi:
+
+```text
+/skill:thermo-nuclear-code-quality-review Review the current branch's changes.
+```
+
+Adapted from Cursor's [Cursor Team Kit](https://github.com/cursor/plugins/tree/main/cursor-team-kit/skills/thermo-nuclear-code-quality-review) under the MIT License.
+
 ## Repository layout
 
 ```text
@@ -88,8 +122,18 @@ skills/
     SKILL.md
   kiss/
     SKILL.md
+  product-description/
+    SKILL.md
+    agents/
+      openai.yaml
+    references/
   simplify-codebase/
     SKILL.md
+    agents/
+      openai.yaml
+  thermo-nuclear-code-quality-review/
+    SKILL.md
+    LICENSE
     agents/
       openai.yaml
 ```

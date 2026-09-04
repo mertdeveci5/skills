@@ -1,0 +1,4 @@
+interface:
+  display_name: "Thermo-Nuclear Code Review"
+  short_description: "Run an uncompromising maintainability audit"
+  default_prompt: "Use $thermo-nuclear-code-quality-review to rigorously audit this branch for structural code-quality problems."
