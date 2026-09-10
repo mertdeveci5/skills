@@ -1,71 +1,77 @@
 ---
 name: family-values
-description: Apply a world-class interface design sensibility — simplicity through gradual revelation, fluidity through seamless transitions, delight through selective emphasis — when designing, building, or reviewing any user interface, interaction, animation, or product flow. Use when the user asks to make a UI feel polished, fluid, seamless, intuitive, or delightful, design transitions or micro-interactions, reduce interface clutter, improve onboarding or multi-step flows, or review a product's experience quality.
+description: Design, build, or review polished user interfaces using gradual revelation, purposeful continuity, and selective delight. Use for requests to make a UI feel fluid, intuitive, seamless, or delightful; improve motion, micro-interactions, onboarding, or multi-step flows; or review product experience quality. Do not use merely for visual restyling with no interaction or product-flow concern.
 ---
 
 # Family Values
 
-A design sensibility for making complex products feel welcoming, adapted from Benji Taylor's essay on interface craft: <https://benji.org/family-values>. Three principles — **simplicity**, **fluidity**, and **delight** — applied as hundreds of small, deliberate decisions across every interaction. Use this as design guidance in your own context when building or reviewing interfaces for any product.
+Use this design sensibility to make a complex product feel welcoming without making it shallow. It is adapted from Benji Taylor's [Family Values](https://benji.org/family-values): simplicity protects attention, fluidity preserves orientation, and delight makes important moments feel considered.
 
-Simplicity ensures accessibility. Fluidity maintains continuity of experience. Delight fosters meaningful connection. Together they communicate respect for the user's time, intelligence, and experience.
+These principles guide decisions; they are not a mandate to add animation or ceremony everywhere. Preserve the product's intent, established design system, performance budget, and accessibility requirements. A fast, direct change is better than motion that does not explain anything.
 
-Performance, reliability, and accessibility are table-stakes — these principles sit on top of them, not instead of them.
+## Start With the Interaction
 
-## Simplicity Through Gradual Revelation
+Before proposing or implementing a meaningful flow, identify:
 
-Present the fundamentals at the user's fingertips; reveal everything else only as it becomes relevant. Complexity stays out of sight and out of mind until required. A complex product should still feel approachable to a newcomer without sacrificing depth for the expert.
+- the user's goal and the one action that matters on this surface;
+- the trigger, resulting state, and what remains the same;
+- whether the user is moving forward, backward, sideways, or simply seeing an in-place update;
+- cancellation, error, loading, and reduced-motion behavior.
 
-- **Progressive disclosure over everything-at-once.** Do not present all features at all times. Surface each action at the moment it becomes relevant to what the user is doing.
-- **One thing per surface.** Each view, sheet, popover, or step is dedicated to a singular piece of content or one primary action. Distill overwhelming actions — onboarding, setup, destructive confirmations — into compact, step-by-step interactions.
-- **Preserve context with overlays.** Prefer transient surfaces (sheets, drawers, popovers) layered over the current interface for transient tasks, instead of full-screen transitions that displace the user. Reserve full screens for committed destinations.
-- **Emerge from the trigger.** Transient UI should visually originate from the element or context that summoned it — a confirmation unfolds from the button that requested it, not from nowhere.
-- **Make each step unmistakable.** Consecutive steps in a flow must differ visibly (in size, layout, or content) so progression is never ambiguous. Rewrite content or adjust the design if two steps look too similar.
-- **Label every step.** Each transient surface gets a succinct title that captures its purpose, plus an obvious way back or out.
-- **Match the ambient theme.** Transient UI adapts to its context — a dark-themed flow keeps its overlays dark.
-- **Compact signals approachable.** A small, focused step encourages engagement; a full-screen commitment intimidates. Step-by-step surfaces reassure users they're diving deeper into their current context, not veering off course.
+For a multi-step or high-stakes flow, state this interaction map in the response or implementation notes. Do not invent a new motion library, visual language, or elaborate transition system when the existing stack or product conventions already provide the right primitive.
 
-Think of the interface as a series of interconnected rooms seen through doorways: each user action unfolds the next space gradually. The user sees where they are going as they go there.
+## Simplicity: Reveal Only What Matters Now
 
-## Fluidity Through Seamless Transitions
+Keep the fundamentals within reach, and reveal depth when it becomes relevant.
 
-Envision the entire interface as a constantly evolving space where any element can transform into another, given a strong enough rationale. Moving through the product should feel like floating through water, not walking between separate rooms.
+- Give each surface one primary job. Break intimidating actions—setup, onboarding, confirmations—into focused, comprehensible steps.
+- Prefer progressive disclosure to an always-visible inventory of controls. The next option should appear because of what the user just did, not because it was available.
+- Use a sheet, drawer, popover, or other transient surface when the task is contextual and temporary; use a committed destination when it needs a durable place of its own.
+- Let transient surfaces arise from their trigger or current context. Preserve the user's sense of where they were instead of replacing it unnecessarily.
+- Make adjacent steps visibly distinguishable. If two stages could be mistaken for each other, change their content, hierarchy, or shape—not just a label.
+- Give temporary surfaces a concise purpose and an obvious, accessible way to dismiss or go back. Match their visual theme to the surrounding context.
 
-- **Ban static transitions.** Never cut instantly between states when a purposeful motion can show the relationship. Motion aids orientation: every animation answers "how did I get from A to B?" Fly instead of teleport.
-- **Directional motion encodes space.** Movement direction must match spatial logic — tapping a tab on the left moves the view left, drilling in pushes forward, backing out reverses. Treat the interface as having unbreakable physical rules.
-- **Elements morph; they don't swap.** Any element can transform into another when there's a rationale: buttons become sheets, sheets become full screens, a chevron becomes a close icon, a progress indicator travels to where its result now lives.
-- **Morph text on meaningful changes.** When a label changes at a significant step (Continue → Confirm), animate the transformation — e.g., through shared letters — so the user registers the weight of the step instead of missing an instant swap.
-- **Persistent elements stay consistent.** If a component is visible now and will persist in the next phase, it must remain visually continuous — never let an element redundantly duplicate or re-animate itself. Items that "travel" between screens must stay recognizably the same object.
-- **Keep unchanged parts unchanged.** When only a portion of content updates, animate only that portion. Repainting a whole panel or sentence for a one-word update is digital whiplash.
-- **Animation explains state changes.** When data reorganizes — grouping, sorting, reordering — animate items into place so intent and outcome are understood. The static version loses the plot.
-- **Motion can feel faster than speed.** Thoughtful transitions enhance clarity while feeling just as fast as instant cuts. Prioritize clarity of cause and effect over raw speed.
-- **Fluidity is cumulative.** One nice transition doesn't make a fluid interface — it takes hundreds of consistent decisions compounding over time. Glitchy or inconsistent motion erodes trust faster than no motion at all; a stuttering animation in a critical flow makes users question whether the product understood them at all.
-- **Know why before adding.** Understand the navigation model deeply enough to justify each transition. No motion for motion's sake.
+Think of the product as connected rooms: a user sees enough of the next room to choose it, then discovers the details as they enter.
 
-## Delight Through Selective Emphasis
+## Fluidity: Make State Changes Legible
 
-Delight creates emotional connection, but mastering delight is mastering *selective emphasis* — knowing where, when, and how intensely to apply it. Building a great product means respecting not just what someone does, but how they feel while doing it.
+Motion earns its place when it answers “what changed, and how did I get here?” The interface should have consistent physical rules, but it should never make a user wait for decoration.
 
-- **Follow the Delight-Impact Curve.** The potential impact of delight increases as usage frequency decreases. Daily flows get subtle, efficient touches; rarely used flows get the memorable moments. Over-decorating a daily task becomes annoying; a mundane rare task — setup, backup, first use of a feature — is the biggest opportunity.
-- **Polish everywhere, or nowhere counts.** Users judge the whole product by its least polished corner — the dirty-bathroom-in-a-fancy-restaurant effect. Infrequently used features must never feel like afterthoughts.
-- **Mark significant moments.** Infrequent but meaningful actions — creating something important, completing a security step, finishing setup — deserve ceremony: an animation or reward that makes the occasion memorable rather than mundane.
-- **Use surprise and easter eggs sparingly.** Hidden moments discovered through interaction — a ripple on a tap, a playful response to invalid input — delight precisely because they're unexpected. Place them where usage is occasional enough that discovery stays fun rather than becoming noise.
-- **Sweat the micro-details in hot paths.** In daily-use flows, delight lives in tiny things: separators shifting as numbers are typed, icons flipping as values change, satisfying drag-and-drop. Small enough to never get in the way.
-- **Vary intensity, never omit.** Don't dim delight in rare features — scale the dosage. Frequently used: inherent craft. Rarely used: surprise and novelty. Specialness decays with repetition, so the same trick can't carry a daily flow.
-- **Reward investment.** Celebrate when users complete essential but unglamorous tasks. These moments show you value the user's emotional experience, not just their functional needs.
+- Encode spatial relationships consistently: moving into a detail, returning, and switching between ordered peers should each have a direction that matches the information architecture.
+- When an object persists across a transition, keep it recognizably the same object. Let cards, controls, indicators, and relevant text travel or morph; do not briefly duplicate, reset, or replay them.
+- Animate the changed region, not the entire surface. If one word, value, row, or grouping changed, keep the rest stable.
+- Use a morph only when a meaningful relationship exists—such as a trigger becoming a sheet or an item opening into its detail. Otherwise use the quietest transition that preserves orientation, including an instant update when no explanation is needed.
+- Make entry, exit, interruption, and cancellation coherent. Inputs remain usable; a second action retargets or reverses a transition rather than queueing it behind an animation.
+- Treat loading as loading. Keep the stable frame and communicate pending work; never stretch motion to disguise latency.
 
-## Applying This Skill
+For concrete implementation patterns—shared elements, directional slides, FLIP reordering, text and numeric transitions—read [the motion recipes](references/motion-recipes.md) only when implementing motion. Adapt a recipe to the existing stack rather than copying it blindly.
 
-When building a UI:
+## Delight: Spend Emphasis Where It Counts
 
-1. Start with gradual revelation — decide what must be visible now versus what appears on demand, and what each step's singular focus is.
-2. Map the transitions — for every state change, ask how the user sees the path from A to B, what morphs into what, and whether direction matches spatial logic.
-3. Check continuity — anything persisting across the change must remain consistent; animate only what actually changed.
-4. Place delight deliberately — assess the feature's usage frequency and scale the intensity to match the Delight-Impact Curve.
+Delight is selective emphasis, not decoration.
 
-When reviewing a UI, ask:
+- Scale intensity inversely with frequency. Daily work benefits from quiet craft; first-use, recovery, setup, and meaningful completion can earn a memorable moment.
+- Mark consequential milestones with proportionate ceremony, but never turn a routine action into friction.
+- Put micro-delight in the hot path: responsive feedback, stable number formatting, satisfying direct manipulation, and thoughtful empty or error states.
+- Reserve surprise and easter eggs for places where repeat exposure will not turn them into noise.
+- Treat neglected edges as product quality issues. A rare setting, error path, or empty state still shapes trust in the whole product.
 
-1. Is anything shown before it's relevant? Could it emerge from context instead?
-2. Are there static cuts where a purposeful transition would preserve orientation?
-3. Does any element duplicate, jump, or fully repaint when it should persist or partially update?
-4. Is delight distributed by the Delight-Impact Curve, or clustered in the wrong places?
-5. Is there any unpolished corner that undermines the rest?
+## Craft Baseline
+
+- Respect `prefers-reduced-motion` and platform equivalents: reduce travel to short crossfades while retaining clear state change.
+- Favor compositor-friendly properties and existing layout-transition primitives. Keep local motion quick and interruptible; test slow devices as well as the happy path.
+- Do not use motion as the only signal. State, focus, labels, semantics, contrast, and keyboard behavior must remain correct without it.
+- Reuse the product's timing, easing, spacing, and component primitives. A coherent vocabulary matters more than a clever individual animation.
+
+## Delivering the Work
+
+When building, implement the smallest set of changes that improves the observed flow, then test the normal, interrupted, error/loading, and reduced-motion paths that apply.
+
+When reviewing, prioritize concrete findings in this order:
+
+1. Confusing hierarchy, hidden intent, or lost context.
+2. State changes that jump, duplicate, or contradict spatial logic.
+3. Motion that harms performance, accessibility, or interaction responsiveness.
+4. Delight that is misplaced, repetitive, or absent from a meaningful moment.
+
+For each finding, name the interaction, user impact, and a proportionate recommendation. Do not prescribe a visual style the user did not ask for.
