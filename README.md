@@ -6,6 +6,22 @@ Each skill lives in its own folder under `skills/` and follows the Agent Skills 
 
 ## Skills
 
+### Family Values
+
+Applies the Family app design philosophy from Benji Taylor's [Family Values](https://benji.org/family-values) essay — simplicity through gradual revelation, fluidity through seamless transitions, and delight through selective emphasis — when designing, building, or reviewing user interfaces and interactions.
+
+Install with the open `skills` CLI:
+
+```bash
+npx skills add mertdeveci5/skills --skill family-values
+```
+
+Use in pi:
+
+```text
+/skill:family-values Review this flow's transitions and make it feel seamless.
+```
+
 ### Handshake
 
 Relentlessly stress-tests plans, architecture, product decisions, migrations, and feature designs one question at a time until there is shared understanding.
@@ -118,6 +134,8 @@ skills/
     SKILL.md
     agents/
       openai.yaml
+  family-values/
+    SKILL.md
   handshake/
     SKILL.md
   kiss/
