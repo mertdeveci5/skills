@@ -8,7 +8,7 @@ Each skill lives in its own folder under `skills/` and follows the Agent Skills 
 
 ### Family Values
 
-Applies the Family app design philosophy from Benji Taylor's [Family Values](https://benji.org/family-values) essay — simplicity through gradual revelation, fluidity through seamless transitions, and delight through selective emphasis — when designing, building, or reviewing user interfaces and interactions.
+Applies a world-class interface design sensibility — simplicity through gradual revelation, fluidity through seamless transitions, and delight through selective emphasis — adapted from Benji Taylor's [Family Values](https://benji.org/family-values) essay, when designing, building, or reviewing any user interface.
 
 Install with the open `skills` CLI:
 
