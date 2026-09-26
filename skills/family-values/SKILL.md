@@ -9,7 +9,9 @@ Use this design sensibility to make a complex product feel welcoming without mak
 
 These are lenses for judgment, not a checklist and not a mandate for more animation. Preserve the product's intent, established design system, performance budget, and accessibility requirements. A fast, direct change beats motion that explains nothing. Utility, performance, and security are table stakes and come before any of this.
 
-When a concrete precedent would help, read [the case studies](references/case-studies.md). They describe roughly fifty real interactions from the essay's videos, each with the transferable idea. When implementing motion, read [the motion recipes](references/motion-recipes.md).
+When a concrete precedent would help, read [the case studies](references/case-studies.md). They describe roughly fifty real interactions from the essay's videos, each with the transferable idea.
+
+When implementing motion, read [the motion recipes](references/motion-recipes.md) first. The skill ships tested React + Motion [components](references/components/) (tray, text morph, number entry, directional tabs, close/back icon, result handoff) whose springs, curves, and geometry were measured frame by frame from Family's recordings. The numbers, with SwiftUI and Compose equivalents, are in [the motion spec](references/motion-spec.md). Copy and restyle these instead of writing a new approximation; hand-rolled guesses at "Family-like" motion are what make an interface feel slightly off. Only depart from the measured constants when the product already has its own established motion system.
 
 ## Start With the Interaction
 
@@ -59,7 +61,7 @@ A fluid product is the sum of many small, consistent decisions. One impressive t
 Delight is selective emphasis, not decoration. It shows that the product values how people feel, not just what they get done.
 
 - **Delight-Impact Curve.** The potential for delight rises as feature frequency falls. Surprise fades with repetition, so intensity should scale inversely with how often a surface is seen.
-- **Graded, never absent.** Hot paths get quiet craft: responsive feedback, separators that slide into place, satisfying drag and drop. Rare, consequential moments get ceremony: account or object creation, finishing a tedious chore, first use. Nothing gets neglect.
+- **Graded, never absent.** Hot paths get quiet craft: responsive feedback, digits and separators that settle into place, satisfying drag and drop. Rare, consequential moments get ceremony: account or object creation, finishing a tedious chore, first use. Nothing gets neglect.
 - **Ceremony that teaches.** The best big moments also explain what just happened and why it matters. Follow a celebration with the lasting result (a badge, a checked state) so the reward means something.
 - **Surprise in plain sight.** Put easter eggs on moderately used surfaces, where they get discovered without becoming noise. They reward curiosity and never block the task.
 - **Delight that informs.** Prefer effects that also communicate state: a shimmer that says hidden values are still live, an arrow that flips with the sign of a change, an empty state that points at the next action.
@@ -86,7 +88,7 @@ These are prompts to look closer, not bans:
 - Respect `prefers-reduced-motion` and platform equivalents: collapse travel and morphs into short crossfades, but keep the continuity signal (the same object persists).
 - Favor compositor-friendly properties and the stack's existing layout-transition primitives. Keep local motion quick and interruptible. Test on slow devices and on the interrupted path.
 - Never rely on motion alone to convey meaning. State, focus, labels, semantics, contrast, and keyboard behavior must be correct without it, and focus should move into and back out of temporary surfaces.
-- Reuse the product's timing, easing, spacing, and component primitives. A coherent vocabulary matters more than any single clever animation.
+- Reuse the product's timing, easing, spacing, and component primitives when it has them; otherwise adopt the measured Family constants as the vocabulary. A coherent vocabulary matters more than any single clever animation.
 
 ## Delivering the Work
 

@@ -10,7 +10,7 @@ The interactions shown in Benji Taylor's [Family Values](https://benji.org/famil
 **One job per tray, and every tray a different height.** A "refuel" flow runs Choose Chains → Choose Amount ($2 / $5 / $10 / … / Custom) → Custom Amount keypad → Review Details → Address → final confirmation. Each step is a tray with one decision, and each has a clearly different height. Continue appears disabled until the step's single decision is made. Benji says they sometimes *rewrote copy or adjusted layout* just so two adjacent trays would not be the same height.
 → *If two steps could be mistaken for each other, the transition is invisible. Change the shape, not just the words. Content editing is a legitimate motion tool.*
 
-**Header icon doubles as close and back.** The first tray in a sequence shows ×. Later trays show ←, and the glyph morphs between them.
+**One icon, two roles.** Every tray has a title and a × in the top corner. On the first tray the × closes it. On later trays of a sequence the same × steps back one tray. The icon keeps its shape; its role changes. (The × → ‹ morph is a different pattern, used in full-screen stepped flows; see "Chevron ↔ ×" below.)
 → *One affordance that always means "undo the last thing" is simpler than two buttons.*
 
 **Help is a tray on top of a tray.** In a Fee Estimate tray, the ⓘ next to "Price Range" opens a smaller explanation tray. Closing it returns to the gauge exactly as it was. The "?" in a hub screen opens a full-color educational tray ("Your Family") with a single "Got it".
@@ -54,7 +54,7 @@ The interactions shown in Benji Taylor's [Family Values](https://benji.org/famil
 **Chevron ↔ ×.** In stepped flows the leading glyph morphs between back and close as the user moves between the first step and later steps. The title crossfades with a short directional offset.
 → *Even a 16-point icon can confirm which way the user just moved.*
 
-**Continue → Confirm.** On the last step before an irreversible action, the button label morphs from "Continue" to "Confirm". Shared letters ("Con") stay in place, and only the differing letters change. The article's pill diagram does the same with status: "Analyzing Transaction" (spinner) turns into "Transaction Safe" (green check) or "Transaction Warning" (red triangle). "Transaction" stays put while the color changes.
+**Continue → Confirm.** On the last step before an irreversible action, the button label morphs from "Continue" to "Confirm". Frame by frame (the essay's "Craft" → "Creative" demo): letters the two words share *in order* (C, r, a, t) glide to their new positions on the same spring as the trays. Removed letters fade out exactly where they stood, and added letters fade in where they land, over about 0.2s. Nothing scales or blurs. The article's pill diagram does the same with status: "Analyzing Transaction" (spinner) turns into "Transaction Safe" (green check) or "Transaction Warning" (red triangle). "Transaction" stays put while the color changes.
 → *When the weight of an action changes, animate the words that carry the weight. Keep the unchanged words still, so the eye goes to the change.*
 
 **Counting buttons.** Adding wallets from an index turns a disabled "Add Wallet" into "Add 1 Wallet", then "Add 2 Wallets". When the user moves on, it becomes "Import 2 Wallets". Rows show a skeleton while an address is fetched, then an "Added" pill.
@@ -90,7 +90,7 @@ The interactions shown in Benji Taylor's [Family Values](https://benji.org/famil
 **Easter eggs where repetition won't hurt.** Tapping the receive QR code sends a ripple through its dots. Dragging a finger across flips the dots like sequins in a trail of color. It's used often enough to be found, and rarely enough not to annoy.
 → *Hide surprise in plain sight on a moderately used surface. Make it reward curiosity and never block the task.*
 
-**Micro-delight in the hot path.** In amount entry, the comma separators slide to their new positions as digits are typed ($100 → $10,000 → $1,000,000) instead of jumping.
+**Micro-delight in the hot path.** In amount entry ($100 → $10,000 → $1,000,000), each new digit rises into place through a soft edge at the bottom of the line while the whole number re-centers. When grouping changes, the old comma drops out where it stood, and a beat later a new comma rises at its new place.
 → *For daily actions, the delight is the craft of the basic interaction itself.*
 
 **Escalating copy.** If the user keeps typing an amount above their balance, the error goes from "Not enough ETH" to "Still not enough ETH" to "Still not enough ETH 😅".
@@ -116,7 +116,7 @@ The interactions shown in Benji Taylor's [Family Values](https://benji.org/famil
 
 ## The Delight-Impact Curve
 
-Potential for delight falls as feature frequency rises. That doesn't mean frequent features get no craft. It means their delight should be small, fast, and never in the way (the sliding commas). Rare features can take a big moment (wallet creation, backup confetti). "Specialness" wears off with repetition, like eating the same candy again and again. The aim is *graded intensity everywhere*, not delight in some places and neglect in others.
+Potential for delight falls as feature frequency rises. That doesn't mean frequent features get no craft. It means their delight should be small, fast, and never in the way (the rising digits and commas). Rare features can take a big moment (wallet creation, backup confetti). "Specialness" wears off with repetition, like eating the same candy again and again. The aim is *graded intensity everywhere*, not delight in some places and neglect in others.
 
 ## Polish parity
 

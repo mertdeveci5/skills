@@ -8,7 +8,7 @@ Each skill lives in its own folder under `skills/` and follows the Agent Skills 
 
 ### Family Values
 
-Applies a world-class interface design sensibility — simplicity through gradual revelation, fluidity through seamless transitions, and delight through selective emphasis — adapted from Benji Taylor's [Family Values](https://benji.org/family-values) essay, when designing, building, or reviewing any user interface. Includes case studies of ~50 real interactions from the essay's videos and implementation recipes for trays, text morphs, and shared-element handoffs.
+Applies a world-class interface design sensibility — simplicity through gradual revelation, fluidity through seamless transitions, and delight through selective emphasis — adapted from Benji Taylor's [Family Values](https://benji.org/family-values) essay, when designing, building, or reviewing any user interface. Includes case studies of ~50 real interactions from the essay's videos, a motion spec measured frame by frame from Family's recordings (with SwiftUI and Compose equivalents), and tested React + Motion components for trays, text morphs, number entry, directional tabs, and result handoffs.
 
 Install with the open `skills` CLI:
 
