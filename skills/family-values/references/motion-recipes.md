@@ -49,7 +49,7 @@ const [view, setView] = useState<"options" | "privateKey">("options");
 - Each `view` is one step with one job. Change `view` to move between steps: the tray springs to the new height while the old content fades out and the new content scales up from 0.90.
 - Make adjacent steps clearly different heights. If two steps come out nearly the same, change the content (copy, grouping, an illustration), not the animation.
 - The × closes on the first step and goes back on later steps (pass `onBack`). The backdrop always closes the whole tray.
-- Give each step a heading with the `id` you pass as `labelledBy`. Focus moves into the tray, stays inside across steps, Escape acts like the ×, and focus returns to the trigger on close.
+- Give each step a heading with the `id` you pass as `labelledBy`. Focus moves into the tray without scrolling the page, stays inside across steps, Escape acts like the × on the topmost tray only, and focus returns to the trigger on close.
 - Use `theme="dark"` inside dark flows.
 - To grow a tray into a full-screen page, animate the same element to the page's bounds with `layoutId` and `SPRING`. Don't swap it for a route change.
 

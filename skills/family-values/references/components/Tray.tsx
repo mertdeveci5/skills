@@ -11,6 +11,9 @@ import {
   TRAY_RADIUS,
 } from "./motion-spec";
 
+// Open trays, most recent last, so Escape only dismisses the one on top.
+const openTrays: symbol[] = [];
+
 type TrayProps = {
   open: boolean;
   /** Key of the current step. Changing it crossfades content and morphs the height. */
@@ -38,15 +41,21 @@ export function Tray({ open, view, onClose, onBack, theme = "light", labelledBy,
     dismiss.current = onBack ?? onClose;
   });
 
-  // Move focus into the tray, handle Escape like the × button, and return focus to the trigger afterwards.
+  // Move focus into the tray, handle Escape like the × button (topmost tray only),
+  // and return focus to the trigger afterwards.
   useEffect(() => {
     if (!open) return;
+    const token = Symbol("tray");
+    openTrays.push(token);
     const previous = document.activeElement as HTMLElement | null;
     trayRef.current?.focus({ preventScroll: true });
-    const onKey = (e: KeyboardEvent) => e.key === "Escape" && dismiss.current();
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape" && openTrays[openTrays.length - 1] === token) dismiss.current();
+    };
     document.addEventListener("keydown", onKey);
     return () => {
       document.removeEventListener("keydown", onKey);
+      openTrays.splice(openTrays.indexOf(token), 1);
       previous?.focus({ preventScroll: true });
     };
   }, [open]);
