@@ -42,19 +42,19 @@ export function Tray({ open, view, onClose, onBack, theme = "light", labelledBy,
   useEffect(() => {
     if (!open) return;
     const previous = document.activeElement as HTMLElement | null;
-    trayRef.current?.focus();
+    trayRef.current?.focus({ preventScroll: true });
     const onKey = (e: KeyboardEvent) => e.key === "Escape" && dismiss.current();
     document.addEventListener("keydown", onKey);
     return () => {
       document.removeEventListener("keydown", onKey);
-      previous?.focus();
+      previous?.focus({ preventScroll: true });
     };
   }, [open]);
 
   // When a step swaps out the focused control, keep focus inside the tray.
   useEffect(() => {
     const tray = trayRef.current;
-    if (open && tray && !tray.contains(document.activeElement)) tray.focus();
+    if (open && tray && !tray.contains(document.activeElement)) tray.focus({ preventScroll: true });
   }, [open, view]);
 
   return (

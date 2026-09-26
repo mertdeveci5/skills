@@ -26,7 +26,7 @@ import { MotionConfig } from "motion/react";
 | Typed amount with grouping separators | `AmountText` | Send amount $100 → $1,000,000 |
 | Switching between ordered peers (tabs, segments) | `DirectionalSwap` | Bottom tabs, "we fly instead of teleport" |
 | Leading icon of a full-screen stepped flow | `CloseBackIcon` | × on the first step, ‹ afterwards |
-| Work that leaves the screen and lands somewhere | `PendingButton` / `PendingSpinner` / `PendingBadge` | Confirm → spinner → Activity tab |
+| Work that leaves the screen and lands somewhere | `PendingAction` / `PendingBadge` | Confirm → spinner → Activity tab |
 | Anything else that moves between two layouts | `layout` / `layoutId` with `SPRING` from `motion-spec.ts` | Wallet cards travelling between screens |
 
 ## Tray
@@ -101,17 +101,20 @@ For full-screen stepped flows. The strokes pivot between × and ‹ in step with
 ## Result handoff
 
 ```tsx
-// Bottom of the confirmation screen
-<AnimatePresence>
-  {stage === "confirm" && <PendingButton id="pending-tx" label="Confirm" onClick={submit} />}
-  {stage === "submitting" && <PendingSpinner id="pending-tx" />}
-</AnimatePresence>
+// Bottom of the confirmation screen. Unmount it in the same commit the badge mounts.
+{stage !== "done" && (
+  <PendingAction id="pending-tx" pending={stage === "submitting"} onClick={submit} spinnerColor="#fff">
+    <FaceIdIcon /> Confirm
+  </PendingAction>
+)}
 
-// In the tab bar, rendered in the same commit the confirmation screen closes
-<AnimatePresence>{hasPending && <PendingBadge id="pending-tx" />}</AnimatePresence>
+// In the tab bar
+<span className="tab-icon">{stage === "done" ? <PendingBadge id="pending-tx" /> : <ClockIcon />}</span>
 ```
 
-- One `id`, rendered in exactly one place at a time. Motion morphs the button into the spinner, then carries the spinner to its destination.
+- `PendingAction` is one element: its width springs down to a circle (real width, not a scale transform, so the spinner stays centered and round), the label fades, the fill fades out, and a spinner in `spinnerColor` fades in. Set `spinnerColor` to contrast with the surface *behind* the button.
+- When the work leaves the screen, unmount `PendingAction` and mount `PendingBadge` with the same `id` in one state change. The spinner itself travels and shrinks into place; never render both at once.
+- Fade the screen the button lived on (opacity on a layer, ~0.22s) while the spinner travels, so the user sees where it lands.
 - The destination should be where the user will find the result later: a tab, an inbox, the original item. When the user acts on an existing item (for example speeding up a pending transaction), send the spinner back to that item.
 
 ## Other shared-element transitions
