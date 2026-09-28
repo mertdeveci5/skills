@@ -126,6 +126,16 @@ Use in pi:
 
 Adapted from Cursor's [Cursor Team Kit](https://github.com/cursor/plugins/tree/main/cursor-team-kit/skills/thermo-nuclear-code-quality-review) under the MIT License.
 
+### Twitter Post
+
+Splits a wide image or app screenshot into three X post images: 25% left, 50% middle, and 25% right. Includes a preview of the resulting sequence.
+
+Install with the open `skills` CLI:
+
+```bash
+npx skills add mertdeveci5/skills --skill twitter-post
+```
+
 ## Repository layout
 
 ```text
@@ -154,6 +164,10 @@ skills/
     LICENSE
     agents/
       openai.yaml
+  twitter-post/
+    SKILL.md
+    scripts/
+      split.py
 ```
 
 ## License
