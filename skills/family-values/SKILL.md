@@ -13,6 +13,16 @@ When a concrete precedent would help, read [the case studies](references/case-st
 
 When implementing motion, read [the motion recipes](references/motion-recipes.md) first. The skill ships tested React + Motion [components](references/components/) (tray, text morph, number entry, directional tabs, close/back icon, result handoff) whose springs, curves, and geometry were measured frame by frame from Family's recordings. The numbers, with SwiftUI and Compose equivalents, are in [the motion spec](references/motion-spec.md). Copy and restyle these instead of writing a new approximation; hand-rolled guesses at "Family-like" motion are what make an interface feel slightly off. Only depart from the measured constants when the product already has its own established motion system.
 
+IMPORTANT: ALWAYS THINK FROM THE PERSPECTIVE OF THE USER WHO WOULD USE WHAT WE ARE DESIGNING
+
+1. Start by mapping out how the new change or your instructed creation maps out to the rest of the features or flows in the app
+2. Take a note
+3. Go through how the user should go through the flow now considering the simplicity and fluidity
+4. Map out the steps to each details. Think about unnecessary components
+5. Design a first iteration
+6. Go through it again and reduce and delete unnecessary stuff. Keep goign and iterate until you are proud of your work
+7. Once flow is done, start individual components focusing on fluidity and beauty and simplicity. 
+
 ## Start With the Interaction
 
 Before proposing or implementing a meaningful flow, sketch its map:
