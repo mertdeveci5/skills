@@ -128,7 +128,7 @@ Adapted from Cursor's [Cursor Team Kit](https://github.com/cursor/plugins/tree/m
 
 ### Socratic Tutor
 
-Tutors you to real understanding of a topic or a system, one question at a time: a diagnostic, a skill map with levels 0–5, strict evaluation, spaced review and a final assessment. It digs in Mitchell Hashimoto's interview style — start where you are confident and ask why and how until you reach the edge of what you know ("what is the largest integer JavaScript can represent exactly, and what happens when you add 1?"). For a codebase or production system it teaches how the code flows, the opinionated choices and their alternatives, and the limits.
+Tutors you to real understanding of a topic or a system, one question at a time: a diagnostic, a skill map with levels 0–5, strict evaluation, spaced review and a final assessment. It digs in Mitchell Hashimoto's interview style — start where you are confident and ask why and how until you reach the edge of what you know. For a codebase or production system it teaches how the code flows, the opinionated choices and their alternatives, and the limits.
 
 Install with the open `skills` CLI:
 

@@ -22,22 +22,21 @@ knows with high confidence, then ask increasingly detailed whys and hows until
 they cannot answer. That edge is where the teaching happens. Then go one layer
 down and do it again.
 
-The depth expected matches the user's own work. A frontend engineer is expected
-to know the browser: "What is the largest integer JavaScript can represent
-exactly? What happens when you add 1 to it? And 2? Why? What does that tell you
-about how numbers are stored?" Someone who runs Docker should know what operating
-system runs inside a container, how Docker makes that work on macOS, why it uses
-a VM there, and what else it could have done.
+The depth expected matches the user's own work: whatever they build with every
+day, they should know down to its boundaries. Ask for the boundary itself (the
+largest value, the last step, the hard limit), then what happens one step past
+it, then why it behaves that way and what that reveals about how it works
+underneath.
 
-A typical ladder, starting from what the user is most comfortable with:
+The ladder, starting from what the user is most comfortable with:
 
-1. What are you most comfortable with? (a language, an OS, a part of the system)
-2. Here is a problem in that world. What are the hardest parts?
+1. Where are you most confident?
+2. Here is a real problem there. What are the hardest parts?
 3. How would you solve them?
-4. How does that tool itself go from text to execution?
-5. What other ways exist? (an interpreter, a JIT, ahead-of-time compilation)
-6. How does that work? What does it emit? How does it choose?
-7. What sits in the middle? What does the OS or the hardware do there?
+4. How does the tool you would use do its job?
+5. What other ways could it have been done?
+6. How does each work, and how does it choose between them?
+7. What does the layer beneath it do?
 
 Keep digging until you have found the edge, then teach just past it.
 
@@ -133,8 +132,8 @@ progress:
     -----------------------------------------------------------------
 
 Use solid/light block characters (U+2588 / U+2591) for the bars when rendering.
-Keep a note per subskill of where the user's edge is ("knows the gateway serves
-stored bytes; does not know how the route is found").
+Keep a note per subskill of where the user's edge is: the last step they could
+explain and the first one they could not.
 
 ## Teaching loop (repeat per subskill)
 
@@ -142,7 +141,7 @@ stored bytes; does not know how the route is found").
   for the answer; do not add hints, example answers, or teaching content after it.
 - Prefer questions that make the user: predict an outcome, explain why, find the flaw
   in a plausible-but-wrong claim, apply an idea to a new case, connect two ideas, or
-  push a value past its limit ("and if you add 1?").
+  push a value or a mechanism one step past its limit.
 - Climb: after a right answer, ask the next why or how one layer down. Keep going
   until the user cannot answer; that is the edge.
 - When the user is wrong or reaches the edge, do not give the answer. Ask a narrower
@@ -179,9 +178,9 @@ stored bytes; does not know how the route is found").
 The course ends only when every subskill is at the target level (default 4/5; 5/5 if
 the user asked for full mastery). Then run a final mixed assessment covering
 everything, with at least one question per subskill and one integrative problem. For
-a system, the integrative problem crosses all three lenses, such as: "A machine
-loses power during a deploy. Walk me through what every user sees, which choice made
-it so, and what you would change." If the user passes, show the final map and a
+a system, the integrative problem crosses all three lenses: a failure in the middle
+of a change, traced through what every user sees, which choice made it so, and what
+the user would change. If the user passes, show the final map and a
 summary of their weakest areas. If not, back to the loop.
 
 ## Commands the user can use anytime
