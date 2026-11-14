@@ -126,6 +126,34 @@ Use in pi:
 
 Adapted from Cursor's [Cursor Team Kit](https://github.com/cursor/plugins/tree/main/cursor-team-kit/skills/thermo-nuclear-code-quality-review) under the MIT License.
 
+### Learn the System
+
+Teaches a codebase or production system deeply in Mitchell Hashimoto's interview style: start where you are confident and dig with whys and hows until you reach the edge of your understanding, across three lenses in order — how the code flows end to end, the opinionated choices and their alternatives, and the limits of the system. Runs on the Socratic Tutor loop.
+
+Install with the open `skills` CLI:
+
+```bash
+npx skills add mertdeveci5/skills --skill learn-the-system --skill socratic-tutor
+```
+
+Use in pi:
+
+```text
+/skill:learn-the-system Teach me this repository.
+```
+
+### Socratic Tutor
+
+Structured Socratic tutoring to mastery: a diagnostic, a skill map with levels 0–5, one question at a time, strict evaluation, spaced review and a final assessment.
+
+Install with the open `skills` CLI:
+
+```bash
+npx skills add mertdeveci5/skills --skill socratic-tutor
+```
+
+Copied unchanged from Jane Street's [agent_skills](https://github.com/janestreet/agent_skills/tree/7c6715c29548a3b39d4a9545c698ee4fd17a7213/socratic-tutor) under the MIT License.
+
 ### Twitter Post
 
 Splits a wide image or app screenshot into three X post images: 25% left, 50% middle, and 25% right. Includes a preview of the resulting sequence.
@@ -150,6 +178,8 @@ skills/
     SKILL.md
   kiss/
     SKILL.md
+  learn-the-system/
+    SKILL.md
   product-description/
     SKILL.md
     agents/
@@ -159,6 +189,9 @@ skills/
     SKILL.md
     agents/
       openai.yaml
+  socratic-tutor/
+    SKILL.md
+    LICENSE
   thermo-nuclear-code-quality-review/
     SKILL.md
     LICENSE
